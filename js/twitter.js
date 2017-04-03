@@ -8,7 +8,10 @@ var comentario = document.createElement("textarea");
 var de = document.createElement("span");
 var entradaAutor = document.createElement("input");
 var botonEnviar = document.createElement("button");
-var areaPublicacion = document.createElement("section");
+var etiqueta = document.getElementById("areaPublicacion");
+etiqueta = document.createElement("section");
+
+
 
 var id = "check" + contadorCaracteres;
 
@@ -28,6 +31,9 @@ entradaAutor.id = id;
 
 botonEnviar.type = "button";
 botonEnviar.innerText = "Enviar";
+botonEnviar.onclick = publicar;
+
+etiqueta.setAttribute("for", id);
 
 seccion.appendChild(comentario);
 seccion.appendChild(de);
@@ -36,14 +42,15 @@ seccion.appendChild(botonEnviar);
 
 document.getElementById("areaPublicacion").appendChild(seccion);
 
-comentario.addEventListener("keypress", contadorDeCaracteres);
+
+
+/*comentario.addEventListener("keypress", contadorDeCaracteres);
 autor.addEventListener("")
-botonEnviar.addEventListener("click", publicar);
+botonEnviar.addEventListener("click", publicar);*/
 
 function publicar(){
-    areaPublicacion.innerText = comentario.value + " " + autor.value; 
+    
+    etiqueta.innerText = (comentario.value) + "<br>" + entradaAutor.value;
+    console.log(entradaAutor.value);
 }
 
-function contadorDeCaracteres() {
-    
-}
